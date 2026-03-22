@@ -43,24 +43,14 @@ export default function Header({
         </div>
 
         <div className="header-actions">
-          <span className={`${badgeClass} hidden md:inline-flex`}>
-            {badgeText}
-          </span>
-
-          {isConnected ? (
-            <div className="flex items-center gap-2">
-              <button type="button" className="wallet-button">
-                {account ? shortenAddress(account) : ""}
-              </button>
-              <button type="button" onClick={disconnect} className="wallet-disconnect">
-                Disconnect
-              </button>
-            </div>
-          ) : (
-            <button onClick={connect} className="wallet-button">
-              CONNECT WALLET
-            </button>
+          {isConnected && !isCorrectNetwork && (
+            <span className={`${badgeClass} hidden md:inline-flex`}>
+              {badgeText}
+            </span>
           )}
+
+          {/* @ts-ignore */}
+          <appkit-button />
         </div>
       </div>
 
