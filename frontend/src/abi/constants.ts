@@ -1,0 +1,7 @@
+// Update these after deploying the contract
+export const CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS as string
+  ?? "0xe591E4BFaC6a2d9C31Bc4F631DcEB88dBddd3b24";
+
+export const CHAIN_ID = Number(import.meta.env.VITE_CHAIN_ID ?? 11155111); // Sepolia
+
+export const ETHERSCAN_BASE = "https://sepolia.etherscan.io";
