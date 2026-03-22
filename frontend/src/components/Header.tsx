@@ -4,7 +4,7 @@ import logoUrl from "../assets/logo.svg";
 
 interface HeaderProps extends ContractState {}
 
-const SEPOLIA_CHAIN_ID_HEX = "0xaa36a7";
+const LISK_SEPOLIA_CHAIN_ID_HEX = "0x106a";
 
 interface EthereumRequest {
   method: string;
@@ -22,7 +22,7 @@ export default function Header({
     ? "network-badge network-badge--ok"
     : "network-badge network-badge--error";
 
-  const badgeText = !isConnected || isCorrectNetwork ? "Sepolia" : "Wrong Network";
+  const badgeText = !isConnected || isCorrectNetwork ? "Lisk Sepolia" : "Wrong Network";
   const showWarning = isConnected && !isCorrectNetwork;
 
   const handleSwitchNetwork = async () => {
@@ -30,7 +30,7 @@ export default function Header({
     if (!eth?.request) return;
     await eth.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: SEPOLIA_CHAIN_ID_HEX }],
+      params: [{ chainId: LISK_SEPOLIA_CHAIN_ID_HEX }],
     });
   };
 
@@ -58,10 +58,10 @@ export default function Header({
         <div className="warning-bar">
           <div className="warning-inner">
             <p className="warning-text">
-              You are connected to the wrong network. Switch to Sepolia to use the faucet.
+              You are connected to the wrong network. Switch to Lisk Sepolia to use the faucet.
             </p>
             <button onClick={handleSwitchNetwork} className="btn-secondary">
-              Switch to Sepolia
+              Switch to Lisk Sepolia
             </button>
           </div>
         </div>

@@ -17,7 +17,7 @@ export interface ContractState {
   disconnect:       () => void;
 }
 
-const RPC_FALLBACK = import.meta.env.VITE_RPC_URL ?? "https://rpc.sepolia.org";
+const RPC_FALLBACK = import.meta.env.VITE_RPC_URL ?? "https://rpc.sepolia-api.lisk.com";
 
 function makeReadContract(): ethers.Contract {
   const rpc = new ethers.providers.JsonRpcProvider(RPC_FALLBACK);

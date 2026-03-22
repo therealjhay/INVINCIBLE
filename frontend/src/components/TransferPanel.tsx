@@ -82,7 +82,7 @@ export default function TransferPanel({ contract, userBalance, refetch }: Transf
             rel="noreferrer"
             className="toast-link"
           >
-            View on Etherscan ↗
+            View on Blockscout ↗
           </a>
         </div>
       );

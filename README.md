@@ -13,7 +13,7 @@ The token contract address is also the token address (standard ERC-20). The fron
 
 | Network | Chain ID | Contract Address | Token Address | Explorer |
 | --- | --- | --- | --- | --- |
-| Sepolia | `11155111` | `0xEf744Bd6EEBd80e2c5CA1F9E54B444123b513432` | `0xEf744Bd6EEBd80e2c5CA1F9E54B444123b513432` | `https://sepolia.etherscan.io` |
+| Lisk Sepolia | `4202` | `0x6FA63Dc97FC20752B422AB24ee8F5d3Ce53836A5` | `0x6FA63Dc97FC20752B422AB24ee8F5d3Ce53836A5` | `https://sepolia-blockscout.lisk.com` |
 
 If you deploy a new instance, update `VITE_CONTRACT_ADDRESS` (and optionally `VITE_CHAIN_ID`, `VITE_RPC_URL`) in the frontend env, or change the fallback in `frontend/src/abi/constants.ts`.
 
@@ -45,7 +45,7 @@ The Vite + React UI (in `frontend/`) provides:
 
 **Project Structure**
 - `contracts/` - Solidity contract(s).
-- `scripts/deploy.ts` - deployment + optional Etherscan verification.
+- `scripts/deploy.ts` - deployment + optional Blockscout verification.
 - `test/` - Hardhat + Chai tests.
 - `frontend/` - React UI (Vite) + ABI + contract wiring.
 
@@ -60,20 +60,21 @@ The Vite + React UI (in `frontend/`) provides:
 
 **Deployment**
 - Local node + deploy: `npm run deploy:local`
-- Sepolia deploy: `npm run deploy:sepolia`
+- Lisk Sepolia deploy: `npm run deploy:lisk-sepolia`
 
-The deploy script prints the deployed address and, on public networks, waits for 6 confirmations before attempting Etherscan verification.
+The deploy script prints the deployed address and, on public networks, waits for 6 confirmations before attempting Blockscout verification.
 
 **Environment Variables**
 Root (`.env`) for Hardhat:
-- `RPC_URL` - Sepolia RPC endpoint.
 - `PRIVATE_KEY` - deployer key (keep this private).
-- `ETHERSCAN_API_KEY` - for contract verification.
+- `LISK_SEPOLIA_RPC_URL` - Lisk Sepolia RPC endpoint.
+- `LISK_BLOCKSCOUT_API_KEY` - for contract verification (Blockscout).
+- `RPC_URL` - optional fallback RPC (also set to Lisk Sepolia here).
 
 Frontend (`frontend/.env` or `frontend/.env.local`):
 - `VITE_CONTRACT_ADDRESS` - contract/token address used by the UI.
-- `VITE_CHAIN_ID` - expected chain ID (default `11155111` for Sepolia).
-- `VITE_RPC_URL` - read-only fallback RPC (defaults to `https://rpc.sepolia.org`).
+- `VITE_CHAIN_ID` - expected chain ID (default `4202` for Lisk Sepolia).
+- `VITE_RPC_URL` - read-only fallback RPC (defaults to `https://rpc.sepolia-api.lisk.com`).
 
 **Testing Notes**
 The tests in `test/Viltrum.test.ts` cover:

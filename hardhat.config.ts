@@ -16,13 +16,26 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {},
-    sepolia: {
-      url: process.env.RPC_URL || "",
+    "lisk-sepolia": {
+      url: process.env.LISK_SEPOLIA_RPC_URL || process.env.RPC_URL || "https://rpc.sepolia-api.lisk.com",
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      gasPrice: 1_000_000_000,
     },
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY || "",
+    apiKey: {
+      "lisk-sepolia": process.env.LISK_BLOCKSCOUT_API_KEY || "123",
+    },
+    customChains: [
+      {
+        network: "lisk-sepolia",
+        chainId: 4202,
+        urls: {
+          apiURL: "https://sepolia-blockscout.lisk.com/api",
+          browserURL: "https://sepolia-blockscout.lisk.com",
+        },
+      },
+    ],
   },
   typechain: {
     outDir: "typechain-types",

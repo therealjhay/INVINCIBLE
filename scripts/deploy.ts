@@ -21,7 +21,7 @@ async function main() {
         address: token.address,
         constructorArguments: [],
       });
-      console.log("✅ Contract verified on Etherscan");
+      console.log("✅ Contract verified on Blockscout");
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : String(err);
       if (message.includes("Already Verified")) {

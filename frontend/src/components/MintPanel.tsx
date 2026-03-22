@@ -102,7 +102,7 @@ export default function MintPanel({
             rel="noreferrer"
             className="toast-link"
           >
-            View on Etherscan ↗
+            View on Blockscout ↗
           </a>
         </div>
       );

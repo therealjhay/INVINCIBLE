@@ -51,7 +51,7 @@ export default function Faucet({ contract, cooldownSeconds, refetch }: FaucetPro
             rel="noreferrer"
             className="toast-link"
           >
-            View on Etherscan ↗
+            View on Blockscout ↗
           </a>
         </div>
       );

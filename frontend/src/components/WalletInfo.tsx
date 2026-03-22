@@ -85,7 +85,7 @@ export default function WalletInfo({ account, provider }: WalletInfoProps) {
           rel="noreferrer"
           className="wallet-link"
         >
-          ↗ View on Etherscan
+          ↗ View on Blockscout
         </a>
       </div>
     </section>
