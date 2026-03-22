@@ -1,6 +1,6 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomiclabs/hardhat-ethers";
-import "@nomiclabs/hardhat-etherscan";
+import "@nomicfoundation/hardhat-verify";
 import "@typechain/hardhat";
 import "@nomicfoundation/hardhat-chai-matchers";
 import * as dotenv from "dotenv";
